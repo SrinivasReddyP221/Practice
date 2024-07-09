@@ -1,0 +1,1058 @@
+// ********************** Variables **************************************************************************************************
+
+$style-medium: 'Avenir-medium';
+$style-bold: 'Avenir-bold';
+$style-light: 'Avenir-light';
+$background-light: rgb(245, 255, 255);
+
+// ************************ Font Styles Import************************************************************************************************
+
+@font-face {
+    font-family: 'Avenir-medium'; 
+    src: url("Avenir/Avenir Regular/Avenir Regular.ttf") format('truetype'); 
+    }
+@font-face {
+        font-family: 'Avenir-bold'; 
+        src: url("Avenir/Avenir Black/Avenir Black.ttf") format('truetype'); 
+        }
+
+@font-face {
+    font-family: 'Avenir-light'; 
+    src: url("Avenir/Avenir Light/Avenir Light.ttf") format('truetype'); 
+    }
+
+// ************************** Mixins and Functions **********************************************************************************************
+
+@mixin screenratio{
+    width: 80vw;
+    margin: 0 auto;
+}
+@mixin row-wise{
+    display: flex;
+    flex-direction: row;
+}
+@mixin col-wise{
+    display: flex;
+    flex-direction: column;
+}
+
+
+// ****************************** Frame 1******************************************************************************************
+
+*{
+    margin: 0;
+    font-family: $style-medium;
+    line-height: 1.4;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.windowdisplayhidden{
+    display: none;
+}
+
+.frame1{
+    background: linear-gradient(to top, rgb(235, 245, 248), white);
+    min-height: 100vh;
+}
+                  // *****************Header starts***************
+.header{
+    
+    background-color: white;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    border-bottom: 0.1px solid rgb(234, 232, 232);
+}
+.logo{
+    width: 10vw;
+    cursor: pointer;
+}
+.logoimg{
+    margin: 1vh auto;
+    width: 7vw;
+}
+.pages{
+    @include row-wise();
+    cursor: pointer;
+    width: 50vw;
+    justify-content: space-around;
+    align-items: center;
+}
+.headeritem {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-family: $style-bold;
+    &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -0.25vw;
+    width: 100%;
+    height: 0.25vw;
+    background-color: orange;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 1s ease;
+    }
+    
+    &:hover::after {
+    transform: scaleX(1);
+    }
+    
+    }
+.login{
+    @include row-wise();
+    align-items: center;
+    cursor: pointer;
+}
+
+.signin{
+    width: 8vw;
+    height: 2vw;
+    border-color: rgb(97, 97, 243);
+    margin: 0 1vw 0 1vw;
+    border-radius: 4px;
+    transition: background-color 0.7s ease;
+    cursor: pointer;
+
+}
+.signin:hover{
+    background-color:  rgb(97, 97, 243);
+    color: white;
+}
+.register{
+    width: 8vw;
+    height: 2vw;
+    background-color: orange;
+    color: white;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: medium;
+    border: none;
+    transition: border 0.3s ease, background-color 0.3s ease;
+    margin: 0 1vw 0 1vw;
+    cursor: pointer;
+}
+.register:hover{
+    border: 0.15rem solid black;
+}
+        // **************************** header ends*********************
+.heroContainer{
+    @include screenratio();
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    align-items: center;
+}
+.isHeroContainerContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    width: 40vw;
+}
+.isHeroContainerImg{
+    
+    width: 40vw;
+    
+}
+.line1{
+    font-family: $style-bold;
+    font-size: 4vw;
+    color: orange;
+    
+}
+.line2{
+    font-size: 3vw;
+    font-family: $style-bold;
+    color: rgb(82, 82, 82);
+}
+.line3{
+    font-size: 2vw;
+    font-weight: 300;
+    color: rgb(94, 93, 93);
+
+}
+.line4{
+    width: 33vw;
+    font-size: 1.5vw;
+    font-weight: 200;
+    color: gray;
+    font-family: $style-light;
+
+}
+// **************************** Frame 2 ********************************************************************************************
+.frame2{
+    @include screenratio();
+    height: 100vh;
+    display: flex;
+    align-items: center;
+
+}
+.hero-2{
+
+    padding: 3vw;
+    display: flex;
+    background-color: rgb(101, 148, 230);
+}
+.hero-2content{
+    font-family: $style-medium;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5vh;
+    
+}
+.hero-2img{
+    width: 50%;
+}
+.hero-2line2{
+    font-size: large;
+    font-weight: 200;
+    color: gray;
+}
+.hero-2line3{
+    color: rgb(54, 53, 53);
+    font-family: $style-bold;
+}
+// ****************************** Frame 3 ******************************************************************************************
+.frame3{
+    @include screenratio();
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+.hero-3line1{
+    padding: 1vw;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,auto);
+    gap: 3vw;
+
+}
+.card {
+    padding: 3vw;
+    background-color: $background-light;
+    border-radius: 5%;
+    
+    }
+.elementimg{
+    width: 3vw;
+
+}
+.elementheading{
+    font-size: 1.30vw;
+    font-family: $style-bold;
+
+}
+.elementpara{
+    color: gray;
+}
+// *************************************** Frame 4 *********************************************************************************
+.frame4{
+    @include screenratio();
+
+}
+.hero-4{
+    display: grid;
+    margin-top: 3vw;
+    grid-template-columns: repeat(2,1fr);
+    gap: 3vw;
+}
+.sentences{
+    background-color: $background-light;
+    padding: 1vw;
+    border-radius: 3%;
+}
+.emoji1{
+    width: 2vw;
+    
+}
+.emojiheading{
+    display: flex;
+    flex-direction: row;
+}
+.heading1{
+
+    margin-left: 1.5vw;
+    font-weight: 900;
+    font-size: 2vw;
+}
+.statement{
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: row;
+
+}
+.arrow{
+    width: 1.5vw;
+    
+    margin-right: 2vw;
+}
+.statementcontent{
+    font-size: large;
+}
+.statementcontentheading{
+    font-family: $style-bold;
+}
+.elementblogimg{
+    width: 100%;
+    
+}
+// *************************************** Frame 5 *********************************************************************************
+.grid-2{
+    margin-top: 5vw;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3vw;
+}
+.card-2{
+    background-color: $background-light;
+    padding: 0;
+    border-radius: 5%;
+}
+.card-2content{
+    padding: 0 2vw 0;
+}
+.readmorebtn{
+    margin-top: 2vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.readmore{
+    color: rgb(122, 199, 212);
+}
+.readmorearrow{
+    width: 20px;
+    transform: translateX(1px)
+}
+.readmorebtn:hover .readmorearrow{
+    transform: translatex(10px);
+}
+.readmorebtn:hover .readmore{
+    color: rgb(74, 151, 206);
+}
+.blog-btn{
+    margin-top: 2vw;
+    margin-left: 70vw;
+    height: 3vw;
+    font-size: large;
+    color: blue;
+}
+// ********************************************* frame 7 ***************************************************************************
+.frame7{
+    background: linear-gradient(to right, rgb(75, 69, 237), rgb(18, 4, 81));
+
+}
+.hero7{
+    @include screenratio();
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding-top: 5vw;
+    padding-bottom  : 5vw;
+}
+.hero7content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.hero7line1{
+
+    font-size: larger;
+    font-family: $style-bold;
+    color: white;
+}
+.hero7line2{
+
+    font-size: 3vw;
+    color: white;
+}
+.hero7line3{
+
+    color: white;
+}
+.learnmore{
+    color: white;
+}
+.learnmore:hover{
+    color: white;
+}
+.hero7img{
+    width: 100%;
+}
+// ****************************************** Frame 8 ******************************************************************************
+.frame8{
+    @include screenratio();
+    margin-top: 5vw;
+}
+.frame8row{
+    margin-top: 3vw;
+    margin-bottom: 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.f8item{
+    @include row-wise();
+}
+.f8line1{
+    font-size: 3vw;
+    font-family: $style-bold;
+}
+.f8line2{
+    font-size: medium;
+    color: gray;
+}
+
+.f8oneimg{
+    margin: 1vw;
+}
+// ***************************************** Frame 9 *******************************************************************************
+.frame9{
+    @include screenratio();
+}
+.frame9line1{
+    margin: 2vw 0 2vw 0;
+    width: 90%;
+}
+.contact-btn{
+    margin-bottom: 5vw;
+}
+.f9btn2{
+    cursor: pointer;
+    width: 10vw;
+    height: 3.5vw;
+    border-radius: 4px;
+    border-color: rgb(97, 97, 243);
+    margin: 0 1vw 0 1vw;
+    font-weight: 700;
+    font-size: large;
+    color: rgb(97, 97, 243);
+    transition: background-color 0.7s ease;
+}
+.f9btn2:hover{
+    background-color:  rgb(97, 97, 243);
+    color: white;
+}
+.f9btn1{
+    cursor: pointer;
+    width: 12vw;
+    height: 3.5vw;
+    background-color: orange;
+    border-radius:  4px;
+    color: white;
+    font-weight: 700;
+    font-size: large;
+    transition: border 0.3s ease, background-color 0.3s ease;   
+    border: none;
+    margin: 0 1vw 0 0;
+}
+.f9btn1:hover{
+    border: 0.15rem solid black;
+}
+// ******************************************* Frame 10 *****************************************************************************
+
+.frame10{
+    @include screenratio();
+    padding: 10vw 0 8vw 0;
+    position: relative;
+
+}
+.hero10{
+    background: linear-gradient(to right, rgb(75, 69, 237), rgb(18, 4, 81));
+    border-radius: 2rem;
+    padding: 3vw;
+    position: relative;
+}
+.f10line1{
+    font-size: 2vw;
+    font-family: $style-bold;
+    color: white;
+}
+.f10line2{
+    margin-top: 2vw;
+    font-size: 1.5vw;
+    color: white;
+    margin-bottom: 3vw;
+}
+
+.positionimg{
+    position: absolute;
+    right: 10%;
+    bottom: -1%;
+}
+.positionimgsize{
+    width: 15vw;
+    
+}
+// ************************************* Footer ***********************************************************************************
+.footer{
+    background-color: $background-light;
+}
+.footerrow{
+    @include screenratio();
+    display: grid;
+    
+    grid-template-columns: repeat(5,1fr);
+    height: auto;
+   padding-top: 4vw;
+   padding-bottom: 3vw;
+}
+
+.footerheading{
+    color: black;
+    font-family: $style-bold;
+}
+.footeritem{
+    cursor: pointer;
+    color: gray;
+    line-height: 2;
+    position: relative;
+    
+    cursor: pointer;
+ 
+    &::after {
+    content: '';
+    position: absolute;
+  
+    left: 0;
+    bottom: -0.25vw;
+    width: 100%;
+    height: 0.1vw;
+    background-color: rgb(205, 204, 202);
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 1s ease;
+    }
+    
+    &:hover::after {
+    transform: scaleX(0.5);
+    }
+}
+
+.helpcenterdiv{
+    margin-top: 2vw;
+}
+.footeritemblue{
+    color: rgb(114, 176, 238);
+}
+.mobilefooterbottom{
+    display: none;
+}
+// **************************************** Footer Bottom ********************************************************************************
+.footerbottom{
+    background-color: rgb(207, 207, 207);
+}
+.lastrow{
+    
+    @include screenratio();
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.sitemap{
+    font-family: $style-bold;
+    cursor: pointer;
+}
+.footericon{
+    width: 2vw;
+    
+}
+.socialemojies{
+    cursor: pointer;
+    padding: 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4vw;
+}
+
+
+//    ***************************************************************************************************     
+//    *                                                              Mobile View                        *
+//    *                                Mobile View                                                      *
+//    ***************************************************************************************************
+@media only screen and (max-width: 600px){
+    .mobiledisplayhidden{
+        display: none;
+    }
+    .mobileview{
+        width: 95vw;
+    }
+
+    // *********************************  Hamburger ******************************************
+    .hamburger-menu{
+        display: none;
+        position: fixed;
+        flex-direction: column;
+        min-height: 100vh;
+        max-height: 100vh; 
+        overflow-y: auto; 
+        background-color: white;
+        width: 100vw;
+        z-index: 100;
+       transition: all 0.5s ease 1s; 
+
+    }
+    .hamburger-menu__header--logo{
+        width: 100px;
+       
+    }
+    .hamburger-menu__header--cross{
+        width: 20px;
+        
+    }
+    .hamburger-menu__header{
+        width: 90%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        
+
+    }
+    .hbpages{
+        display: flex;
+        flex-direction: column;
+        background-color: $background-light;
+    }
+    .smallarrow{
+        transform: rotate(30deg);
+    }
+    .hbele{
+        cursor: pointer;
+        display: flex;
+        flex-direction: row;
+    }
+    .smallarrow{
+        width: 20px;
+    }
+    .hbele{
+        width: 90%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+        border-bottom: 2px solid #dcdee2;
+    }
+    .bgchangelangcontent{
+        font-family: $style-bold;
+        margin-top: 4vw;
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .bgchangelangbtn{
+        margin-left: 5vw;
+        margin-top: 5vw;
+        width: 20vw;
+        height: 10vw;
+        border-color: rgb(97, 97, 243);
+        color: rgb(97, 97, 243);
+        border-radius: 8%;
+    }
+    .hdelementheaditem{
+        font-family: $style-light;
+        font-size: small;
+        color: black;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hbelementitem{
+
+        color: gray;
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    // **************************************** Mobile Header ****************************************************************
+    .headerMobile{
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        background-color: white;
+        z-index: 10;
+        border-bottom: 0.5px solid rgb(234, 232, 232);
+    }
+    .slidericon{
+        position: absolute;
+        cursor: pointer;
+        left: 30px;
+        width: 20px;
+    }
+    .logomobileicon{
+        width: 75px;
+    }
+    // **************************************** Frame 1 ****************************************************************
+    .frame1{
+        display: flex;
+        height: 100vh;
+    }
+    .heroContainer{
+        flex-direction: column-reverse;
+
+    }
+    .isHeroContainerImg{
+        margin-top: 15vh;
+        width: 100%;
+
+    }
+    .isHeroContainerContent{
+        justify-content: center ;
+        width: 100%;
+        text-align: center;
+    }
+    .line1{
+        font-size: 8vw;
+    }
+    .line2{
+        font-size: 6vw;
+    }
+    .line3{
+        font-size: 5vw;
+    }
+    .line4{
+        width: 100%;
+        font-size: 3vw;
+    }
+    .hero-1img{
+        width: 100%;
+    }
+    // **************************************** Frame 2 ****************************************************************
+    .frame2{
+        display: flex;
+    }
+    .hero-2{
+        flex-direction: column;
+    }
+    .hero-2content{
+        width: 100%;
+    }
+    .hero-2img{
+        width: 100%;
+    }
+    .hero-2line2{
+        font-size: 3.5vw;
+    }
+    // **************************************** Frame 3 ****************************************************************
+    .grid{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .elementimg{
+        width: 40px;
+       
+    }
+    .elementheading{
+        font-size: 4.5vw;
+        font-family: $style-bold;
+    }
+    // **************************************** Frame 4 ****************************************************************
+    .hero-4{
+        display: flex;
+        flex-direction: column;
+    }
+    .heading1{
+
+        font-family: $style-bold;
+        font-size: 5vw;
+    }
+    .statementcontent{
+        font-family: $style-light;
+        color: gray;
+        font-size: medium;
+    }
+    .statementcontentheading{
+        color: black;
+    }
+    .emoji1{
+        width: 25px;
+       
+    }
+    .arrow{
+        padding-top: 0.5vw;
+        width: 20px;
+        height: 20px;
+    }
+// **************************************** carousel  ****************************************************************
+    .slider-wrapper {
+        display: block;
+        margin: 1rem;
+        position: relative;
+        overflow: hidden;
+        
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .sliderheading{
+        width: 80%;
+        margin: auto;
+        padding-bottom: 3vh;
+        
+      }
+      
+      .slides-container {
+    
+        
+        display: flex;
+        overflow: scroll;
+        scroll-behavior: smooth;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      .slide-arrow {
+        position: absolute;
+        display: flex;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        height: 4rem;
+        background-color: white;
+        border: none;
+        width: 2rem;
+        font-size: 3rem;
+        padding: 0;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 100ms;
+      }
+      
+      .slide-arrow:hover,
+      .slide-arrow:focus {
+        opacity: 1;
+      }
+      
+      #slide-arrow-prev {
+        left: 0;
+        padding-left: 0.25rem;
+        border-radius: 0 2rem 2rem 0;
+      }
+      
+      #slide-arrow-next {
+        right: 0;
+        padding-left: 0.75rem;
+        border-radius: 2rem 0 0 2rem;
+      }
+      
+      .slide {
+    
+        flex: 1 0 100%;
+      }
+      .slidebar{
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .slidecard{
+        background-color: $background-light;
+        border-radius: 3rem;
+        width: 60%;
+      }
+      .slidecardimg{
+        width: 100%;
+      }
+      .sliderheadingbtn {
+        display: flex;
+        justify-content: center;
+        margin: 5vw;
+        
+      }
+      
+// **************************************** Frame 7 ****************************************************************
+
+    .frame7{
+        height: 90vh;
+    }
+    .hero7{
+        display: flex;
+        flex-direction: column;
+       
+    }
+    .hero7img{
+        margin-top: 5vw;
+    }
+    .hero7content{
+        display: flex;
+        flex-direction: column;
+        height: 40vh;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+       
+    }
+    // **************************************** Frame 9 ****************************************************************
+    .frame9{
+        margin-top: 10vw;
+    }
+    .contact-btn{
+        margin-top: 5vw;
+    }
+    .f9btn1{
+        width: 30vw;
+        height: 10vw;
+        font-size: small;
+    }
+    .f9btn2{
+        width: 30vw;
+        height: 10vw;
+        font-size: small;
+    }
+    // **************************************** Frame 10 ****************************************************************
+    .hero10{
+        background: linear-gradient(to bottom, rgb(75, 69, 237), rgb(18, 4, 81));
+        text-align: center;
+        height: 90vh;
+    }
+    .positionimg{
+        z-index: 5;
+        bottom: -1%;
+        left: 10%;
+        
+    }
+    .positionimgsize{
+        width: 50vw;
+    }
+    .f10line1{
+        margin-top: 4vw;
+        font-size: 5vw;
+    }
+    .f10line2{
+        font-size: 4vw;
+    }
+ 
+// **************************************** Mobile Footer ****************************************************************  
+    .mobilefooter{
+        display: block;
+    }
+// **************************************** Mobile Footer Bottom ****************************************************************  
+    .mobilefooterbottom{
+        display: block;
+        width: 90%;
+        margin: auto;
+        
+        text-align: center;
+        color: gray;
+    }
+    .footerbottomline1{
+        color: black;
+    }
+    .footerbootomline3{
+        font-size: small;
+    }
+    .socialemojies{
+        cursor: pointer;
+        width: 50%;
+        margin: auto;
+    }
+    .footericon{
+        width: 6vw;
+        
+    }
+// **************************************** Mobile Styling Ends ****************************************************************  
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    *{
+        font-size: 2vw;
+    }
+    .frame1{
+        width: 100vw;
+        
+    }
+    .header {
+        width: 98vw;
+        justify-content: space-between;
+    }
+    .logo {
+        width: 15vw;
+    }
+    .logoimg{
+        width: 15vw;
+    }
+    .pages{
+        font-size: 2vw;
+        width: 58vw;
+    justify-content: space-between;
+    }
+    .tablet-button {
+        width: 10vw;
+        height: 4vw;
+        font-size: large;
+    }
+    .tablet-button--larger {
+        width: 18vw;
+        height: 8vw;
+        font-size: larger;
+    }
+    .tablet-button--largest {
+        width: 25vw;
+        height: 8vw;
+        font-size: larger;
+    }
+    .heroContainer{
+        flex-direction: column-reverse;
+    
+    }
+    .isHeroContainerImg{
+        margin-top: 15vh;
+        width: 70vw;
+
+    }
+    .isHeroContainerContent{
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        width: auto;
+    }
+    .hero-2{
+        flex-direction: column;
+    }
+    .hero-2content{
+        width: 100%;
+    }
+    .hero-2img{
+        width: 100%;
+    }
+    .tablet-larger{
+        font-size: 8vw;
+    }
+    .tablet-large{
+        font-size: 6vw;
+    }
+    .tablet-medium{
+        font-size: 5vw;
+    }
+    .tablet-mediumsmall{
+        font-size: 3vw;
+    }
+    .tablet-small{
+        font-size: 2vw;
+    }
+    .tabletview{
+        width: 90vw;
+    }
+    
+}
