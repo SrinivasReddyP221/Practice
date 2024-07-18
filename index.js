@@ -7,10 +7,12 @@ var arrow=document.querySelectorAll(".smallarrow");
 
 // ********************* Ham-Burger Menu MOBILE VIEW ************************************************************************
 openmenu.addEventListener('click', function() {
-togglebar.style.display = 'flex';
+togglebar.style.width = '100vw';
+togglebar.style.animation= 'open 0.5s ease forwards'
 });
 closemenu.addEventListener('click', function() {
-    togglebar.style.display = 'none';
+    togglebar.style.width = '0';
+    togglebar.style.animation='close 0.5s ease-out 0.5s forwards'
     });
 
 // *********************** ARROW AND DROPDOWN Functionality **********************************************************************

@@ -236,7 +236,7 @@ a{
 
     position: sticky;
     top: 0;
-    z-index: 20;
+    z-index: 2;
 }
 .logoimg{
     margin: 1vw auto;
@@ -393,19 +393,17 @@ background-color: white;
 .card-2{
   border: solid 1px #dbe1e9;
 }
-// .lineClamp{
+.lineClamp{
 //     overflow: hidden;
 //   display: -webkit-box;
 //   -webkit-line-clamp : 2;
 //   -webkit-box-orient: vertical;
-// text-overflow: ellipsis;
-// height: 2.8;
-// transition: all 0.7s ease;
-//    &:hover{
-//     -webkit-line-clamp : unset;
-//     height: auto;
-// }
-// }
+ /* Adjust based on your line height */
+max-height: 3em; /* Adjust based on the number of lines */
+overflow: hidden;
+text-overflow: ellipsis;
+ 
+}
 
 .card-2content{
     display: flex;
@@ -663,6 +661,12 @@ gap: 2vw;
     .mob-w-100{
         width: 100%;
     }
+    .mob-Mtop-1{
+        margin-top: 1vw;
+    }
+    .mob-Mtop-2{
+        margin-top: 2vw;
+    }
     .mob-Mtop-3{
         margin-top: 3vh;
     }
@@ -671,15 +675,32 @@ gap: 2vw;
     }
     // *********************************  Hamburger ******************************************
     .hamburger-menu{
-        display: none;
+        display: block;
         position: fixed;
         flex-direction: column;
         overflow-y: auto; 
         background-color: white;
-        width: 100vw;
-        z-index: 100;
-       transition: all 0.5s ease 1s; 
-
+        width: 0;
+        z-index: 3;
+        transition: width 0.5s ease;
+    }
+    @keyframes open{
+        0%{
+            opacity: 0;
+        }
+        
+        100%{
+            opacity: 1;
+        } 
+    }
+    @keyframes close{
+        0%{
+            opacity: 1;
+        }
+       
+        100%{
+            opacity: 0;
+        } 
     }
     .hamburger-menu__header{
         width: 90%;
@@ -690,7 +711,7 @@ gap: 2vw;
         margin-right: auto;
     }
     .hamburger-menu__header--logo {
-        width: 50%;
+        width: 100px;
     }
     .smallarrow{
         transform: rotate(30deg);
@@ -709,10 +730,9 @@ gap: 2vw;
         margin-left: auto;
         margin-right: auto;
         border-bottom: 2px solid #dcdee2;
-    }
-    .hbelecontent:hover{
-        color:  #eb8b2d;
-
+        &:first-child:focus{
+                color:  #eb8b2d;     
+        }
     }
     .bgchangelangcontent{
         margin-top: 4vw;
@@ -749,7 +769,7 @@ gap: 2vw;
         justify-content: center;
         width: 100vw;
         background-color: white;
-        z-index: 10;
+        z-index: 2;
         border-bottom: 0.5px solid rgb(234, 232, 232);
     }
     .slidericon{
@@ -906,7 +926,7 @@ gap: 2vw;
         height: 80vh;
     }
     .positionimg{
-        z-index: 5;
+        z-index: 1;
         bottom: -1%;
         left: 10%;
     }
