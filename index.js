@@ -31,20 +31,56 @@ for(let i=0;i<elementbtn.length;i++){
 }
 
 // ******************************* Carousel MOBILE VIEW **************************************************************
-
 const slidesContainer = document.getElementById("slides-container");
 const slide = document.querySelector(".slide");
 const prevButton = document.getElementById("slide-arrow-prev");
 const nextButton = document.getElementById("slide-arrow-next");
 
+let count = 0;
+const totalSlides = 4; // Total number of slides
+
+// Function to update button visibility
+function updateButtonVisibility() {
+if (count === 0) {
+prevButton.style.opacity = "0";
+} else {
+prevButton.style.opacity = "1";
+}
+
+if (count === totalSlides - 1) {
+nextButton.style.opacity = "0";
+} else {
+nextButton.style.opacity = "1";
+}
+}
+
+// Initial button visibility update
+updateButtonVisibility();
+
 nextButton.addEventListener("click", () => {
-  const slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft += slideWidth;
+const slideWidth = slide.clientWidth;
+slidesContainer.scrollLeft += slideWidth;
+count++;
+updateButtonVisibility();
 });
 
 prevButton.addEventListener("click", () => {
-  const slideWidth = slide.clientWidth;
-  slidesContainer.scrollLeft -= slideWidth;
+const slideWidth = slide.clientWidth;
+slidesContainer.scrollLeft -= slideWidth;
+count--;
+updateButtonVisibility();
 });
-
 // *********************************************************************************************
+
+// var contentExtend = document.querySelector(".elementpara");
+
+// contentExtend.addEventListener('click' , function(){
+//     if (contentExtend.style.webkitLineClamp === "2") {
+//         contentExtend.style.webkitLineClamp = "unset";
+//         contentExtend.style.height = "auto";
+//         } else {
+//             contentExtend.style.webkitLineClamp = "2";
+//             contentExtend.style.height = "3em";
+
+//         }
+// })

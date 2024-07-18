@@ -1,10 +1,3 @@
-// ********************** Variables **************************************************************************************************
-
-$style-medium: 'Avenir-medium';
-$style-bold: 'Avenir-bold';
-$style-light: 'Avenir-light';
-$background-light: rgb(245, 255, 255);
-
 // ************************ Font Styles Import************************************************************************************************
 
 @font-face {
@@ -12,21 +5,29 @@ $background-light: rgb(245, 255, 255);
     src: url("Avenir/Avenir Regular/Avenir Regular.ttf") format('truetype'); 
     }
 @font-face {
-        font-family: 'Avenir-bold'; 
+        font-family: 'Avenir-black'; 
         src: url("Avenir/Avenir Black/Avenir Black.ttf") format('truetype'); 
         }
-
 @font-face {
     font-family: 'Avenir-light'; 
     src: url("Avenir/Avenir Light/Avenir Light.ttf") format('truetype'); 
+    }
+@font-face {
+        font-family: 'Avenir-heavy'; 
+        src: url("Avenir/Avenir Heavy/Avenir Heavy.ttf") format('truetype'); 
+        }
+@font-face {
+            font-family: 'Avenir-book'; 
+            src: url("Avenir/Avenir Book/Avenir Book.ttf") format('truetype'); 
     }
 
 // ************************** Mixins and Functions **********************************************************************************************
 
 @mixin screenratio{
-    width: 80vw;
+    width: min(85vw,1170px);
     margin: 0 auto;
 }
+
 @mixin row-wise{
     display: flex;
     flex-direction: row;
@@ -35,13 +36,184 @@ $background-light: rgb(245, 255, 255);
     display: flex;
     flex-direction: column;
 }
+// ****************************** Variable Classes******************************************************************************************
+.p-1{
+    padding: 1vw;
+}
+.pt-2{
+    padding-top: 2vw;
+}
+.pb-2{
+    padding-bottom: 2vw;
+}
+.p-2{
+    padding: 2vw;
+}
+.p-3{
+    padding: 3vw;
+}
+// ********************** background classes **************************************************************************************************
+.bg-lightblue{
+    background-color: #f3f5fd;
+}
+.bg-white{
+    background-color: white;
+}
+.bg-orange{
+    background-color: #eb8b2d;
+}
+.bg-ash{
+    background-color: rgb(207, 207, 207);
+}
+
+// ********************** Font-color classes **************************************************************************************************
+.color-orange{
+    color: #eb8b2d;
+}
+.color-navyblue{
+    color: #2a345e;
+}
+.color-lightblack{
+    color: #384150;
+}
+.color-gray{
+    color: #8994a5;
+}
+.color-black{
+    color: #000001;
+}
+.color-blue{
+    color: #5090f8;
+}
+.color-white{
+    color: white;
+}
+// ********************** border-radius classes **************************************************************************************************
+.br-4{
+    border-radius: 4px;
+}
+.br-12{
+    border-radius: 12px;
+}
+.br-15{
+    border-radius: 15px;
+}
+.br-16{
+    border-radius: 16px;
+}
+.br-20{
+    border-radius: 15px;
+}
+
+// ********************** button classes **************************************************************************************************
+.btn-size{
+    width: 106px;
+    height: 41px;
+    border-radius: 4px;
+    font-size: 18px;
+}
+// ********************** width classes **************************************************************************************************
+.w-2{
+    width: 2vw;
+}
+.w-7{
+    width: 7vw;
+}
+.w-40{
+    width: 40vw;
+    }
+.w-20px{
+    width: 20px;
+}
+.w-72{
+    width: 72px;
+}
+.w-25px{
+    width: 25px;
+}
+.w-533px{
+    width: 533px;
+}
+.w-1170px{
+    width: 1170px;
+}
+
+// ********************** height classes **************************************************************************************************
+.min-h-fscreen{
+    height: 100vh;
+}
+.max-h-fscreen{
+    height: 100vh;
+}
+.h-fscreen{
+    height: 100vh;
+}
+.h-72{
+    height: 72px;
+}
+.lh-20{
+    line-height: 20px;
+}
+.lh-25{
+    line-height: 20px;
+}
+.lh-50{
+    line-height: 60px;
+}
+.lh-60{
+    line-height: 60px;
+}
 
 
+
+// ********************** Font-family classes **************************************************************************************************
+.font-medium{
+    font-family: 'Avenir-medium';
+}
+.font-bold{
+    font-family: 'Avenir-black';
+}
+.font-light{
+    font-family: 'Avenir-light';
+}
+.font-heavy{
+    font-family: 'Avenir-heavy';
+}
+.font-book{
+    font-family: 'Avenir-book';
+}
+
+// ********************** Font-size classes **************************************************************************************************
+.fs-52{
+    font-size: 52px;
+}
+.fs-42{
+    font-size: 42px;
+}
+.fs-36{
+    font-size: 36px;
+}
+.fs-32{
+    font-size: 32px;
+}
+.fs-28{
+    font-size: 24px;
+}
+.fs-24{
+    font-size: 24px;
+}
+.fs-20{
+    font-size: 20px;
+}
+.fs-18{
+    font-size: 18px;
+}
+.fs-16{
+    font-size: 16px;
+}
 // ****************************** Frame 1******************************************************************************************
-
 *{
     margin: 0;
-    font-family: $style-medium;
     line-height: 1.4;
 }
 a{
@@ -52,42 +224,33 @@ a{
 .windowdisplayhidden{
     display: none;
 }
-
-.frame1{
-    background: linear-gradient(to top, rgb(235, 245, 248), white);
-    min-height: 100vh;
-}
                   // *****************Header starts***************
-.header{
-    
-    background-color: white;
-    width: 100vw;
+.container{
+    @include screenratio();
     display: flex;
     justify-content: center;
-    position: fixed;
-    z-index: 10;
-    border-bottom: 0.1px solid rgb(234, 232, 232);
 }
-.logo{
-    width: 10vw;
-    cursor: pointer;
+.header{
+    background-color: white;  
+    width: 100%;
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
 }
 .logoimg{
-    margin: 1vh auto;
-    width: 7vw;
+    margin: 1vw auto;
+
 }
 .pages{
     @include row-wise();
-    cursor: pointer;
-    width: 50vw;
+    width: 53vw;
     justify-content: space-around;
     align-items: center;
 }
 .headeritem {
     position: relative;
     display: inline-block;
-    cursor: pointer;
-    font-family: $style-bold;
     &::after {
     content: '';
     position: absolute;
@@ -99,294 +262,208 @@ a{
     transform: scaleX(0);
     transform-origin: bottom left;
     transition: transform 1s ease;
-    }
-    
+    }  
     &:hover::after {
-    transform: scaleX(1);
+    transform: scaleX(1);    
     }
-    
     }
 .login{
     @include row-wise();
     align-items: center;
-    cursor: pointer;
 }
-
 .signin{
-    width: 8vw;
-    height: 2vw;
-    border-color: rgb(97, 97, 243);
+    border: 1px solid #5090f8;
+    color: #5090f8;
+background-color: white;
     margin: 0 1vw 0 1vw;
-    border-radius: 4px;
     transition: background-color 0.7s ease;
+    &:hover{
+        background-color:  #5090f8;
+        color: white;
+        cursor: pointer;
+    }
+}
+
+.register{
+    background-color: orange;
+    border: none;
+
     cursor: pointer;
+    &:hover{
+        opacity: 0.7;
+    }
 
 }
-.signin:hover{
-    background-color:  rgb(97, 97, 243);
-    color: white;
-}
-.register{
-    width: 8vw;
-    height: 2vw;
-    background-color: orange;
-    color: white;
-    border-radius: 4px;
-    font-weight: 400;
-    font-size: medium;
-    border: none;
-    transition: border 0.3s ease, background-color 0.3s ease;
-    margin: 0 1vw 0 1vw;
-    cursor: pointer;
-}
-.register:hover{
-    border: 0.15rem solid black;
-}
+
         // **************************** header ends*********************
+.frame1{
+    background-image: linear-gradient(1deg, #f3f5fd 6%, rgba(243, 245, 253, 0) 46%);
+    padding-bottom: 10vh
+}
 .heroContainer{
     @include screenratio();
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
+    @include row-wise();
     align-items: center;
 }
-.isHeroContainerContent{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex: 1;
-    width: 40vw;
-}
 .isHeroContainerImg{
-    
-    width: 40vw;
-    
-}
-.line1{
-    font-family: $style-bold;
-    font-size: 4vw;
-    color: orange;
-    
-}
-.line2{
-    font-size: 3vw;
-    font-family: $style-bold;
-    color: rgb(82, 82, 82);
-}
-.line3{
-    font-size: 2vw;
-    font-weight: 300;
-    color: rgb(94, 93, 93);
-
-}
-.line4{
-    width: 33vw;
-    font-size: 1.5vw;
-    font-weight: 200;
-    color: gray;
-    font-family: $style-light;
-
+    width: min(90vw,600px);
 }
 // **************************** Frame 2 ********************************************************************************************
 .frame2{
     @include screenratio();
-    height: 100vh;
     display: flex;
     align-items: center;
-
 }
 .hero-2{
+    margin: 12vh 0 12vh 0;
 
-    padding: 3vw;
     display: flex;
-    background-color: rgb(101, 148, 230);
+    background-color: #f3f5fd;
+    box-shadow: 0 0 8px 0 rgba(219, 225, 233, 0.25);
+    align-items: center;
 }
 .hero-2content{
-    font-family: $style-medium;
+    width: 545px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 5vh;
-    
+    gap: 3vw;
 }
 .hero-2img{
-    width: 50%;
-}
-.hero-2line2{
-    font-size: large;
-    font-weight: 200;
-    color: gray;
-}
-.hero-2line3{
-    color: rgb(54, 53, 53);
-    font-family: $style-bold;
+    width: 40%;
 }
 // ****************************** Frame 3 ******************************************************************************************
 .frame3{
+    
     @include screenratio();
-    margin-top: 10vh;
-    margin-bottom: 10vh;
-}
-.hero-3line1{
-    padding: 1vw;
 }
 .grid{
+    margin-top: 3vh;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(2,auto);
-    gap: 3vw;
+    gap: 1vw;
+}
+.card{
+    box-shadow: 0 0 20px 0 rgba(137, 148, 165, .08);
+}
 
-}
-.card {
-    padding: 3vw;
-    background-color: $background-light;
-    border-radius: 5%;
-    
-    }
-.elementimg{
-    width: 3vw;
-
-}
-.elementheading{
-    font-size: 1.30vw;
-    font-family: $style-bold;
-
-}
-.elementpara{
-    color: gray;
-}
 // *************************************** Frame 4 *********************************************************************************
 .frame4{
     @include screenratio();
-
+    margin-top: 5vh;
 }
 .hero-4{
     display: grid;
     margin-top: 3vw;
     grid-template-columns: repeat(2,1fr);
-    gap: 3vw;
-}
-.sentences{
-    background-color: $background-light;
-    padding: 1vw;
-    border-radius: 3%;
-}
-.emoji1{
-    width: 2vw;
-    
+    gap: 1vw;
+   
 }
 .emojiheading{
     display: flex;
     flex-direction: row;
 }
 .heading1{
-
-    margin-left: 1.5vw;
-    font-weight: 900;
-    font-size: 2vw;
+    margin-left: 1vw;
 }
 .statement{
-    margin-top: 2vw;
+    margin-top: 1vw;
     display: flex;
     flex-direction: row;
-
+    align-items: start;
 }
 .arrow{
-    width: 1.5vw;
-    
-    margin-right: 2vw;
-}
-.statementcontent{
-    font-size: large;
-}
-.statementcontentheading{
-    font-family: $style-bold;
+
+    margin-right: 1vw;
 }
 .elementblogimg{
     width: 100%;
-    
 }
 // *************************************** Frame 5 *********************************************************************************
+.frame5{
+    margin-top: 8vh;
+}
 .grid-2{
-    margin-top: 5vw;
+    margin-top: 2vw;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    gap: 3vw;
+    gap: 2vw;
 }
 .card-2{
-    background-color: $background-light;
-    padding: 0;
-    border-radius: 5%;
+  border: solid 1px #dbe1e9;
 }
-.card-2content{
-    padding: 0 2vw 0;
-}
-.readmorebtn{
-    margin-top: 2vw;
-    display: flex;
-    flex-direction: row;
-}
+// .lineClamp{
+//     overflow: hidden;
+//   display: -webkit-box;
+//   -webkit-line-clamp : 2;
+//   -webkit-box-orient: vertical;
+// text-overflow: ellipsis;
+// height: 2.8;
+// transition: all 0.7s ease;
+//    &:hover{
+//     -webkit-line-clamp : unset;
+//     height: auto;
+// }
+// }
 
+.card-2content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 22vh;
+}
 .readmore{
     color: rgb(122, 199, 212);
 }
 .readmorearrow{
-    width: 20px;
     transform: translateX(1px)
 }
-.readmorebtn:hover .readmorearrow{
-    transform: translatex(10px);
+.readmorebtn{
+    display: flex;
+    &:hover {
+        .readmorearrow{
+        transform: translatex(10px);
+        }
+        .readmore{
+            color: rgb(74, 151, 206);
+        }
+    }
 }
-.readmorebtn:hover .readmore{
-    color: rgb(74, 151, 206);
+
+.buttoncontainer{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3vh;
+
 }
 .blog-btn{
-    margin-top: 2vw;
-    margin-left: 70vw;
-    height: 3vw;
-    font-size: large;
-    color: blue;
+    
+    border-color: #5090f8;
+    padding: 14px 39px;
+    
 }
 // ********************************************* frame 7 ***************************************************************************
 .frame7{
-    background: linear-gradient(to right, rgb(75, 69, 237), rgb(18, 4, 81));
-
+    background-image: linear-gradient(294deg, #2a345e 100%, #4b67b1 1%);
+margin-top: 8vh;
 }
 .hero7{
     @include screenratio();
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    padding-top: 5vw;
-    padding-bottom  : 5vw;
+   display: flex;
+   height: 80vh;
+   align-items: center;
 }
 .hero7content{
+    margin: 2vw 0 2vw 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+    gap: 3vh;
 }
-.hero7line1{
 
-    font-size: larger;
-    font-family: $style-bold;
-    color: white;
-}
-.hero7line2{
-
-    font-size: 3vw;
-    color: white;
-}
-.hero7line3{
-
-    color: white;
-}
-.learnmore{
-    color: white;
-}
-.learnmore:hover{
-    color: white;
-}
 .hero7img{
-    width: 100%;
+    height: 90%;
 }
 // ****************************************** Frame 8 ******************************************************************************
 .frame8{
@@ -402,62 +479,57 @@ a{
 }
 .f8item{
     @include row-wise();
+    gap: 1vw;
+    align-items: center;
 }
-.f8line1{
-    font-size: 3vw;
-    font-family: $style-bold;
+.elementimg{
+    margin: 0 auto;
 }
-.f8line2{
-    font-size: medium;
-    color: gray;
+.f8oneimg{
+    background-image: linear-gradient(to bottom, #e2edff, #fff);
+    display: flex;
+    align-items: center;
 }
 
-.f8oneimg{
-    margin: 1vw;
+.f8onecontent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1vh;
 }
+
 // ***************************************** Frame 9 *******************************************************************************
 .frame9{
     @include screenratio();
 }
 .frame9line1{
     margin: 2vw 0 2vw 0;
-    width: 90%;
 }
 .contact-btn{
     margin-bottom: 5vw;
 }
 .f9btn2{
     cursor: pointer;
-    width: 10vw;
-    height: 3.5vw;
-    border-radius: 4px;
-    border-color: rgb(97, 97, 243);
+    border: 1px solid rgb(97, 97, 243);
+    background-color: white;
     margin: 0 1vw 0 1vw;
-    font-weight: 700;
-    font-size: large;
+    padding: 14px 35px 14px 31px;
     color: rgb(97, 97, 243);
-    transition: background-color 0.7s ease;
+    transition: all 0.3s ease;
+    &:hover{
+        background-color:  rgb(97, 97, 243);
+        color: white;
+    }
 }
-.f9btn2:hover{
-    background-color:  rgb(97, 97, 243);
-    color: white;
-}
+
 .f9btn1{
-    cursor: pointer;
-    width: 12vw;
-    height: 3.5vw;
-    background-color: orange;
-    border-radius:  4px;
-    color: white;
-    font-weight: 700;
-    font-size: large;
-    transition: border 0.3s ease, background-color 0.3s ease;   
+    padding: 14px 22px 14px 24px;
     border: none;
-    margin: 0 1vw 0 0;
+    &:hover{
+        opacity: 0.7;
+    }
 }
-.f9btn1:hover{
-    border: 0.15rem solid black;
-}
+
 // ******************************************* Frame 10 *****************************************************************************
 
 .frame10{
@@ -467,64 +539,44 @@ a{
 
 }
 .hero10{
-    background: linear-gradient(to right, rgb(75, 69, 237), rgb(18, 4, 81));
-    border-radius: 2rem;
+    background-image: linear-gradient(to left, #395293 100%, #2f72df 1%);
+    border-radius: 25px;
     padding: 3vw;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 4vh;
 }
-.f10line1{
-    font-size: 2vw;
-    font-family: $style-bold;
-    color: white;
-}
-.f10line2{
-    margin-top: 2vw;
-    font-size: 1.5vw;
-    color: white;
-    margin-bottom: 3vw;
+.store-btn{
+   display: flex;
+gap: 2vw;
 }
 
 .positionimg{
     position: absolute;
     right: 10%;
-    bottom: -1%;
+    bottom: -3%;
 }
-.positionimgsize{
-    width: 15vw;
-    
-}
+
 // ************************************* Footer ***********************************************************************************
-.footer{
-    background-color: $background-light;
-}
+
 .footerrow{
     @include screenratio();
     display: grid;
-    
     grid-template-columns: repeat(5,1fr);
-    height: auto;
-   padding-top: 4vw;
-   padding-bottom: 3vw;
-}
-
-.footerheading{
-    color: black;
-    font-family: $style-bold;
+   padding: 4vw 0 3vw 0;
 }
 .footeritem{
-    cursor: pointer;
-    color: gray;
     line-height: 2;
     position: relative;
-    
-    cursor: pointer;
- 
+    display: inline-block;
     &::after {
     content: '';
     position: absolute;
-  
+
     left: 0;
-    bottom: -0.25vw;
+    bottom: 0.30vw;
     width: 100%;
     height: 0.1vw;
     background-color: rgb(205, 204, 202);
@@ -534,7 +586,7 @@ a{
     }
     
     &:hover::after {
-    transform: scaleX(0.5);
+    transform: scaleX(1);
     }
 }
 
@@ -548,24 +600,13 @@ a{
     display: none;
 }
 // **************************************** Footer Bottom ********************************************************************************
-.footerbottom{
-    background-color: rgb(207, 207, 207);
-}
+
 .lastrow{
-    
     @include screenratio();
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-}
-.sitemap{
-    font-family: $style-bold;
-    cursor: pointer;
-}
-.footericon{
-    width: 2vw;
-    
 }
 .socialemojies{
     cursor: pointer;
@@ -588,14 +629,51 @@ a{
     .mobileview{
         width: 95vw;
     }
-
+    .mob-flex-col{
+        display: flex;
+        flex-direction: column;
+    }
+    .mob-p-3{
+        padding: 3vw;
+    }
+    .fs-52{
+        font-size: 42px;
+    }
+    .fs-42{
+        font-size: 28px;
+    }
+    .fs-32{
+        font-size: 20px;
+    }
+    .fs-36{
+        font-size: 20px;
+    }
+    .fs-28{
+        font-size: 18px;
+    }
+    .fs-24{
+        font-size: 16px;
+    }
+    .fs-20{
+        font-size: 14px;
+    }
+    .fs-16{
+        font-size: 12px;
+    }
+    .mob-w-100{
+        width: 100%;
+    }
+    .mob-Mtop-3{
+        margin-top: 3vh;
+    }
+    .mob-Mtop-5{
+        margin-top: 5vh;
+    }
     // *********************************  Hamburger ******************************************
     .hamburger-menu{
         display: none;
         position: fixed;
         flex-direction: column;
-        min-height: 100vh;
-        max-height: 100vh; 
         overflow-y: auto; 
         background-color: white;
         width: 100vw;
@@ -603,29 +681,16 @@ a{
        transition: all 0.5s ease 1s; 
 
     }
-    .hamburger-menu__header--logo{
-        width: 100px;
-       
-    }
-    .hamburger-menu__header--cross{
-        width: 20px;
-        
-    }
     .hamburger-menu__header{
         width: 90%;
-        
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-left: auto;
         margin-right: auto;
-        
-
     }
-    .hbpages{
-        display: flex;
-        flex-direction: column;
-        background-color: $background-light;
+    .hamburger-menu__header--logo {
+        width: 50%;
     }
     .smallarrow{
         transform: rotate(30deg);
@@ -634,9 +699,6 @@ a{
         cursor: pointer;
         display: flex;
         flex-direction: row;
-    }
-    .smallarrow{
-        width: 20px;
     }
     .hbele{
         width: 90%;
@@ -648,12 +710,14 @@ a{
         margin-right: auto;
         border-bottom: 2px solid #dcdee2;
     }
+    .hbelecontent:hover{
+        color:  #eb8b2d;
+
+    }
     .bgchangelangcontent{
-        font-family: $style-bold;
         margin-top: 4vw;
         width: 90%;
         display: flex;
-        justify-content: space-between;
         margin-left: auto;
         margin-right: auto;
     }
@@ -661,25 +725,20 @@ a{
         margin-left: 5vw;
         margin-top: 5vw;
         width: 20vw;
-        height: 10vw;
-        border-color: rgb(97, 97, 243);
-        color: rgb(97, 97, 243);
-        border-radius: 8%;
     }
     .hdelementheaditem{
-        font-family: $style-light;
-        font-size: small;
-        color: black;
+        font-size: 16px;
+        color: #384150;
+        font-family: 'Avenir-heavy';
         width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
     }
     .hbelementitem{
-
-        color: gray;
+        color: #8994a5;
+        font-size: 16px;
+        font-family: 'Avenir-medium';
         width: 80%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
     }
     
     // **************************************** Mobile Header ****************************************************************
@@ -697,45 +756,25 @@ a{
         position: absolute;
         cursor: pointer;
         left: 30px;
-        width: 20px;
+
     }
     .logomobileicon{
         width: 75px;
     }
     // **************************************** Frame 1 ****************************************************************
-    .frame1{
-        display: flex;
-        height: 100vh;
-    }
     .heroContainer{
         flex-direction: column-reverse;
-
+        width: 90vw;
+        height: auto;
     }
     .isHeroContainerImg{
-        margin-top: 15vh;
-        width: 100%;
-
+        margin-top: 10vh;
     }
     .isHeroContainerContent{
-        justify-content: center ;
-        width: 100%;
         text-align: center;
-    }
-    .line1{
-        font-size: 8vw;
-    }
-    .line2{
-        font-size: 6vw;
-    }
-    .line3{
-        font-size: 5vw;
-    }
-    .line4{
-        width: 100%;
-        font-size: 3vw;
-    }
-    .hero-1img{
-        width: 100%;
+        :nth-child(2){
+            font-size: 28px;
+        }
     }
     // **************************************** Frame 2 ****************************************************************
     .frame2{
@@ -743,13 +782,12 @@ a{
     }
     .hero-2{
         flex-direction: column;
+        padding: 5vw;
     }
     .hero-2content{
-        width: 100%;
+        gap: 0.5vw;
     }
-    .hero-2img{
-        width: 100%;
-    }
+    
     .hero-2line2{
         font-size: 3.5vw;
     }
@@ -757,41 +795,15 @@ a{
     .grid{
         display: grid;
         grid-template-columns: repeat(1,1fr);
+        gap: 4vw;
     }
     .elementimg{
         width: 40px;
-       
     }
-    .elementheading{
-        font-size: 4.5vw;
-        font-family: $style-bold;
-    }
+    
     // **************************************** Frame 4 ****************************************************************
     .hero-4{
-        display: flex;
-        flex-direction: column;
-    }
-    .heading1{
-
-        font-family: $style-bold;
-        font-size: 5vw;
-    }
-    .statementcontent{
-        font-family: $style-light;
-        color: gray;
-        font-size: medium;
-    }
-    .statementcontentheading{
-        color: black;
-    }
-    .emoji1{
-        width: 25px;
-       
-    }
-    .arrow{
-        padding-top: 0.5vw;
-        width: 20px;
-        height: 20px;
+        gap: 6vw;
     }
 // **************************************** carousel  ****************************************************************
     .slider-wrapper {
@@ -804,17 +816,12 @@ a{
         margin-right: auto;
       }
       .sliderheading{
-        width: 80%;
-        margin: auto;
-        padding-bottom: 3vh;
-        
+        width: 95vw;
+        margin: 0 auto;
       }
-      
       .slides-container {
-    
-        
         display: flex;
-        overflow: scroll;
+        overflow: hidden;
         scroll-behavior: smooth;
         list-style: none;
         margin: 0;
@@ -865,14 +872,11 @@ a{
         justify-content: center;
         align-items: center;
         text-align: center;
+        overflow: hidden;
       }
       .slidecard{
-        background-color: $background-light;
         border-radius: 3rem;
-        width: 60%;
-      }
-      .slidecardimg{
-        width: 100%;
+        width: 95%;
       }
       .sliderheadingbtn {
         display: flex;
@@ -882,67 +886,29 @@ a{
       }
       
 // **************************************** Frame 7 ****************************************************************
-
     .frame7{
-        height: 90vh;
-    }
-    .hero7{
-        display: flex;
-        flex-direction: column;
-       
-    }
-    .hero7img{
-        margin-top: 5vw;
+        height: 95vh;
     }
     .hero7content{
-        display: flex;
-        flex-direction: column;
-        height: 40vh;
         justify-content: center;
         align-items: center;
         text-align: center;
-       
-    }
-    // **************************************** Frame 9 ****************************************************************
-    .frame9{
-        margin-top: 10vw;
-    }
-    .contact-btn{
-        margin-top: 5vw;
-    }
-    .f9btn1{
-        width: 30vw;
-        height: 10vw;
-        font-size: small;
-    }
-    .f9btn2{
-        width: 30vw;
-        height: 10vw;
-        font-size: small;
     }
     // **************************************** Frame 10 ****************************************************************
     .hero10{
-        background: linear-gradient(to bottom, rgb(75, 69, 237), rgb(18, 4, 81));
+        background-image: linear-gradient(to bottom, #395293 100%, #2f72df 1%);
         text-align: center;
-        height: 90vh;
+        justify-content: start;
+        height: 80vh;
     }
     .positionimg{
         z-index: 5;
         bottom: -1%;
         left: 10%;
-        
     }
     .positionimgsize{
         width: 50vw;
     }
-    .f10line1{
-        margin-top: 4vw;
-        font-size: 5vw;
-    }
-    .f10line2{
-        font-size: 4vw;
-    }
- 
 // **************************************** Mobile Footer ****************************************************************  
     .mobilefooter{
         display: block;
@@ -954,13 +920,7 @@ a{
         margin: auto;
         
         text-align: center;
-        color: gray;
-    }
-    .footerbottomline1{
-        color: black;
-    }
-    .footerbootomline3{
-        font-size: small;
+        color: #8994a5;
     }
     .socialemojies{
         cursor: pointer;
@@ -975,13 +935,6 @@ a{
 }
 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
-    *{
-        font-size: 2vw;
-    }
-    .frame1{
-        width: 100vw;
-        
-    }
     .header {
         width: 98vw;
         justify-content: space-between;
@@ -992,67 +945,26 @@ a{
     .logoimg{
         width: 15vw;
     }
-    .pages{
-        font-size: 2vw;
-        width: 58vw;
-    justify-content: space-between;
-    }
-    .tablet-button {
-        width: 10vw;
-        height: 4vw;
-        font-size: large;
-    }
-    .tablet-button--larger {
-        width: 18vw;
-        height: 8vw;
-        font-size: larger;
-    }
-    .tablet-button--largest {
-        width: 25vw;
-        height: 8vw;
-        font-size: larger;
-    }
+
     .heroContainer{
         flex-direction: column-reverse;
+        justify-content: start;
     
     }
     .isHeroContainerImg{
-        margin-top: 15vh;
-        width: 70vw;
+        margin-top: 5vh;
+    }
+    .hero7{
+        flex-direction: column;
 
     }
-    .isHeroContainerContent{
-        justify-content: center;
-        text-align: center;
-        align-items: center;
-        width: auto;
+    .hero7img{
+        width: 80%;
     }
-    .hero-2{
-        flex-direction: column;
+    .positionimg{
+        right: -5vw;
     }
-    .hero-2content{
-        width: 100%;
+    .positionimgsize{
+        width: 70%;
     }
-    .hero-2img{
-        width: 100%;
-    }
-    .tablet-larger{
-        font-size: 8vw;
-    }
-    .tablet-large{
-        font-size: 6vw;
-    }
-    .tablet-medium{
-        font-size: 5vw;
-    }
-    .tablet-mediumsmall{
-        font-size: 3vw;
-    }
-    .tablet-small{
-        font-size: 2vw;
-    }
-    .tabletview{
-        width: 90vw;
-    }
-    
 }
