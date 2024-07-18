@@ -894,6 +894,10 @@ gap: 2vw;
         align-items: center;
         text-align: center;
     }
+    .contact-btn{
+        display: flex;
+        justify-content: center;
+    }
     // **************************************** Frame 10 ****************************************************************
     .hero10{
         background-image: linear-gradient(to bottom, #395293 100%, #2f72df 1%);

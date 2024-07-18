@@ -901,6 +901,10 @@ a {
     align-items: center;
     text-align: center;
   }
+  .contact-btn {
+    display: flex;
+    justify-content: center;
+  }
   .hero10 {
     background-image: linear-gradient(to bottom, #395293 100%, #2f72df 1%);
     text-align: center;
